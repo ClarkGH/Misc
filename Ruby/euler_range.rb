@@ -6,7 +6,7 @@
 
 def range_sum(max_val)
 
-  range = (1..max_val).to_a
+  range = (1...max_val).to_a
 
   multiple_three_five = []
 
@@ -19,8 +19,8 @@ def range_sum(max_val)
       multiple_three_five << num
     end
   end
-  multiple_three_five.sort!
-  p multiple_three_five
+  p multiple_three_five.sort!
+  p multiple_three_five.inject{|sum,num| sum + num }
 end
 
 range_sum(100)
