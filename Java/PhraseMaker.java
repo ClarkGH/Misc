@@ -15,7 +15,7 @@ public class PhraseMaker {
     int nounRand = (int) (Math.random() * nounLength);
     int actionRand = (int) (Math.random() * actionLength);
 
-    String phrase = adjective[adjectiveRand] + " " + noun[nounRand] + "s" + action[actionRand] + " all over the new carpet.";
+    String phrase = adjective[adjectiveRand] + " " + noun[nounRand] + "s " + action[actionRand] + " all over the new carpet.";
 
     System.out.println("Your phrase is: " + phrase);
   }
