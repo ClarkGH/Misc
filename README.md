@@ -9,15 +9,15 @@ These are miscellaneous programs I write in my spare time to further my learning
 
 ## Languages ##
 
-Java
-Javascript
-Ruby
-Python (to be merged)
-HTML5
-CSS3
+* Java
+* Javascript
+* Ruby
+* Python (to be merged)
+* HTML5
+* CSS3
 
 ## Technologies ##
 
-Rails
-Node
-Meteor (to be merged)
+* Rails
+* Node
+* Meteor (to be merged)
