@@ -1,14 +1,12 @@
 <head>
-  <title>chat</title>
+  <title>Simple Chat</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+{{>entryfield}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="entryfield">
+  <input type="text" id="name" placeholder="Name">
+  <input type="text" id="message" placeholder="Your Message">
 </template>
