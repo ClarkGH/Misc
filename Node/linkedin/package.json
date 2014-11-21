@@ -1,0 +1,14 @@
+{
+  "name": "BusinessCard",
+  "version": "1.0.0",
+  "description": "This will pull information from linkedin using their API and OAuth and will grab your information from LinkedIn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
