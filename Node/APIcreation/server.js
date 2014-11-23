@@ -3,9 +3,10 @@ var express     = require('express');
 var app         = express();
 var bodyParser  = require('body-parser');
 var mongoose    = require('mongoose');
+var Bacon       = require('./app/models/bacon');
 
 //database
-mongoose.connect('mongodb://clarkgh:iloveit@proximus.modulusmongo.net:27017/tiH8ohod')
+mongoose.connect('mongodb://clarkgh:iloveit@proximus.modulusmongo.net:27017/tiH8ohod');
 
 //bodyParser() config to allow getting POST data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,4 +27,4 @@ app.use('/api', router);
 
 //Server
 app.listen(port);
-console.log('The port you are using is: ' + port)
+console.log('The port you are using is: ' + port);
