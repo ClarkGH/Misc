@@ -3,7 +3,7 @@ var express     = require('express');
 var app         = express();
 var bodyParser  = require('body-parser');
 var mongoose    = require('mongoose');
-var Bacon       = require('./app/models/bacon');
+var Bacon       = require('./models/bacon');
 
 //database
 mongoose.connect('mongodb://clarkgh:iloveit@proximus.modulusmongo.net:27017/tiH8ohod');
@@ -16,6 +16,12 @@ var port = process.env.PORT || 3000;
 
 //Routes for API
 var router = express.Router();
+
+//Request middleware
+router.use(function(req, res, next) {
+  console.log('This is working');
+  next();
+});
 
 //GET Route
 router.get('/', function(req, res) {
