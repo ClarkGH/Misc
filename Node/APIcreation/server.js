@@ -28,6 +28,20 @@ router.get('/', function(req, res) {
   res.json({ message: 'Welcome to my Node-based API'});
 });
 
+router.route('/bacon')
+  .post(function(req, res) {
+
+    var bacon = new Bacon();
+    bacon.name = req.body.name;
+
+    bear.save(function(err) {
+      if (err)
+        res.send(err);
+
+      res.json({ message: 'Bacon created!' });
+    });
+  });
+
 //Route registration
 app.use('/api', router);
 
