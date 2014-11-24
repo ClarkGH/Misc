@@ -23,13 +23,12 @@ router.use(function(req, res, next) {
   next();
 });
 
-
+//GET index route
 router.get('/', function(req, res) {
   res.json({ message: 'Welcome to my Node-based API'});
 });
 
 router.route('/bacon')
-
   //POST
   .post(function(req, res) {
 
@@ -40,17 +39,27 @@ router.route('/bacon')
       if (err)
         res.send(err);
 
-      res.json({ message: 'Bacon created!' });
+      res.json({ message: 'New bacon cooked!' });
     });
   })
 
   //GET all
   .get(function(req, res) {
-    Bacon.find(function(err, bacons) {
+    Bacon.find(function(err, bacon) {
       if (err)
         res.send(err);
 
-      res.json(bacons);
+      res.json(bacon);
+    });
+  });
+
+//GET bacon with specific id
+router.route('/bacon/:bacon_id')
+  .get(function(req, res) {
+    Bacon.findById(req.params.bacon_id, function(err, bacon) {
+      if (err)
+        res.send(err);
+      res.json(bacon);
     });
   });
 
