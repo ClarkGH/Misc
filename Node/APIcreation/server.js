@@ -23,10 +23,74 @@ router.use(function(req, res, next) {
   next();
 });
 
-//GET Route
+//GET index route
 router.get('/', function(req, res) {
   res.json({ message: 'Welcome to my Node-based API'});
 });
+
+router.route('/bacon')
+  //POST
+  .post(function(req, res) {
+
+    var bacon = new Bacon();
+    bacon.name = req.body.name;
+
+    bacon.save(function(err) {
+      if (err)
+        res.send(err);
+
+      res.json({ message: 'New bacon cooked!' });
+    });
+  })
+
+  //GET all
+  .get(function(req, res) {
+    Bacon.find(function(err, bacon) {
+      if (err)
+        res.send(err);
+
+      res.json(bacon);
+    });
+  });
+
+router.route('/bacon/:bacon_id')
+
+//GET bacon specific id
+  .get(function(req, res) {
+    Bacon.findById(req.params.bacon_id, function(err, bacon) {
+      if (err)
+        res.send(err);
+      res.json(bacon);
+    });
+  })
+
+//PUT bacon specific id
+  .put(function(req, res) {
+    Bacon.findById(req.params.bacon_id, function(err, bacon){
+      if (err)
+        res.send(err);
+
+      bacon.name = req.body.name;
+      bacon.save(function(err) {
+        if (err)
+          res.send(err);
+
+        res.json({ message: 'Bacon updated'})
+      });
+    });
+  })
+
+//DELETE bacon specific id
+  .delete(function(req, res) {
+    Bacon.remove({
+      _id: req.params.bacon_id
+    }, function(err, bacon) {
+      if (err)
+        res.send(err);
+
+      res.json({message: 'Successfully deleted'});
+    });
+  });
 
 //Route registration
 app.use('/api', router);
