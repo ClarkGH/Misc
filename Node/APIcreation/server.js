@@ -34,7 +34,7 @@ router.route('/bacon')
     var bacon = new Bacon();
     bacon.name = req.body.name;
 
-    bear.save(function(err) {
+    bacon.save(function(err) {
       if (err)
         res.send(err);
 
