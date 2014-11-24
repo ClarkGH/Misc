@@ -53,13 +53,30 @@ router.route('/bacon')
     });
   });
 
-//GET bacon with specific id
 router.route('/bacon/:bacon_id')
+
+//GET bacon specific id
   .get(function(req, res) {
     Bacon.findById(req.params.bacon_id, function(err, bacon) {
       if (err)
         res.send(err);
       res.json(bacon);
+    });
+  })
+
+//PUT bacon specific id
+  .put(function(req, res) {
+    Bacon.findById(req.params.bacon_id, function(err, bacon){
+      if (err)
+        res.send(err);
+
+      bacon.name = req.body.name;
+      bacon.save(function(err) {
+        if (err)
+          res.send(err);
+
+        res.json({ message: 'Bacon updated'})
+      });
     });
   });
 
