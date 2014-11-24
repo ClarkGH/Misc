@@ -78,6 +78,18 @@ router.route('/bacon/:bacon_id')
         res.json({ message: 'Bacon updated'})
       });
     });
+  })
+
+//DELETE bacon specific id
+  .delete(function(req, res) {
+    Bacon.remove({
+      _id: req.params.bacon_id
+    }, function(err, bacon) {
+      if (err)
+        res.send(err);
+
+      res.json({message: 'Successfully deleted'});
+    });
   });
 
 //Route registration
