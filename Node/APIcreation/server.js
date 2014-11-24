@@ -23,12 +23,14 @@ router.use(function(req, res, next) {
   next();
 });
 
-//GET Route
+
 router.get('/', function(req, res) {
   res.json({ message: 'Welcome to my Node-based API'});
 });
 
 router.route('/bacon')
+
+  //POST
   .post(function(req, res) {
 
     var bacon = new Bacon();
@@ -39,6 +41,16 @@ router.route('/bacon')
         res.send(err);
 
       res.json({ message: 'Bacon created!' });
+    });
+  })
+
+  //GET all
+  .get(function(req, res) {
+    Bacon.find(function(err, bacons) {
+      if (err)
+        res.send(err);
+
+      res.json(bacons);
     });
   });
 
