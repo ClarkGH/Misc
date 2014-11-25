@@ -5,9 +5,18 @@ var port = process.env.PORT || 3000;
 //Routes
 var router = express.Router();
 
-//home page route (http://localhost:3000)
+//route middleware on every request (run middleware before routes)
+router.use(function(req, res, next) {
+  //route middleware
+  console.log(req.method, req.url);
+  //continue on to the routes
+  next();
+});
+
+//GET routes
+//index page route (http://localhost:3000/)
 router.get('/', function(req, res) {
-  res.send('Welcome to the index page!')
+  res.send('Welcome to the index page!');
 });
 
 //about page route (http://localhost:3000/about)
@@ -15,6 +24,7 @@ router.get('/about', function(req, res) {
   res.send('Welcome to the about page!');
 });
 
+// put these routes in our app
 app.use('/', router);
 
 //Server
