@@ -1,4 +1,4 @@
-var scotchTodo = angular.module('scotchTodo', []);
+var clarkTodo = angular.module('clarkTodo', []);
 
 function mainController($scope, $http) {
   $scope.formData = {};
