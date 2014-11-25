@@ -5,6 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Clark's Angular/Node Crud App</title>
 
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -28,10 +29,14 @@
     </div>
 
     <div id="todo-list" class="row">
-      <div class="checkbox" ng-repeat="todo in todos">
-        <label>
-          <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-        </label>
+      <div class="col-sm-4 col-sm-offset-4">
+
+        <div class="checkbox" ng-repeat="todo in todos">
+          <label>
+            <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+          </label>
+        </div>
+
       </div>
     </div>
 
