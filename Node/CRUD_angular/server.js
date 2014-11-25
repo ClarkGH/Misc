@@ -21,5 +21,11 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 //parse vnd.api as json
 app.use(methodOverride());
 
+//Models
+var Todo = mongoose.model('Todo', {
+  test : String
+});
+
+//Server
 app.listen(3000);
 console.log("This app is running on port 3000");
