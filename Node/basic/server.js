@@ -13,6 +13,18 @@ router.use(function(req, res, next) {
   next();
 });
 
+//make route middleware validate :name
+router.param('name', function(req, res, next, name) {
+  //validations go here
+  //log to show it's working
+  console.log('we are now validating ' + name);
+
+  //save name in req
+  req.name = name;
+  //go to next
+  next();
+});
+
 //GET routes
 //index page route (http://localhost:3000/)
 router.get('/', function(req, res) {
@@ -26,7 +38,7 @@ router.get('/about', function(req, res) {
 
 //route with params (http://localhost:3000/hello/:name)
 router.get('/hello/:name', function(req, res) {
-  res.send('Hello ' + req.params.name + '!');
+  res.send('Hello ' + req.name + '!');
 });
 
 // put these routes in our app
