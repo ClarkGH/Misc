@@ -41,6 +41,20 @@ router.get('/hello/:name', function(req, res) {
   res.send('Hello ' + req.name + '!');
 });
 
+
+//login
+app.route('/login')
+  //show the form (GET http://localhost:3000/login)
+  .get(function(req, res) {
+    res.send('we will login here in the future');
+  })
+
+  //process the form (POST http://localhost:3000/login)
+  .post(function(req, res) {
+    console.log('beep boop beep');
+    res.send('the login form is being processed!');
+  });
+
 // put these routes in our app
 app.use('/', router);
 
