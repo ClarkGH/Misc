@@ -57,23 +57,27 @@ var Todo = mongoose.model('Todo', {
   });
 
   //delete todo
-app.delete('/api/todos/:todo_id', function(req, res) {
-  Todo.remove({
-    _id : req.params.todo_id
-  }, function(err, todo) {
-    if (err)
-      res.send(err);
-
-    //get all todos after delete
-
-    Todo.find(function(err, todos) {
+  app.delete('/api/todos/:todo_id', function(req, res) {
+    Todo.remove({
+      _id : req.params.todo_id
+    }, function(err, todo) {
       if (err)
-        res.send(err)
-      res.json(todos);
+        res.send(err);
+
+      //get all todos after delete
+
+      Todo.find(function(err, todos) {
+        if (err)
+          res.send(err)
+        res.json(todos);
+      });
     });
   });
-});
 
+  //application
+  app.get('*', function(req, res) {
+    res.sendfile('./public/index.html');
+  });
 //==============================
 
 //Server
